@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('prestamos', function (Blueprint $table) {
             $table->bigIncrements('prestamo_id');
             $table->foreignId('libro_id')->constrained('libros', 'libro_id')->cascadeOnDelete();
-            $table->foreignId('usuario_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('usuario_id')->nullable()->constrained('usuarios', 'usuario_id')->nullOnDelete();
             $table->date('fecha_prestamo');
             $table->date('fecha_devolucion')->nullable();
             $table->date('fecha_devolucion_real')->nullable();
-            $table->enum('estado', ['pendiente', 'devuelto', 'atrasado'])->default('pendiente');
+            $table->date('fecha_devolucion_esperada')->nullable();
+            $table->enum('estado', ['devuelto', 'atrasado', 'activo'])->default('activo');
             $table->timestamps();
         });
     }

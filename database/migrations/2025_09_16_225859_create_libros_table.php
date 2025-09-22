@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('isbn')->unique();
             $table->year('anio_publicacion')->nullable();
             $table->string('editorial')->nullable();
+             $table->enum('categoria', ['Literatura Nicaragüense', 'Historia', 'novela'])->nullable();
             $table->unsignedInteger('cantidad_ejemplares')->default(0);
-            $table->unsignedInteger('ejemplares_disponible')->default(0);
+            $table->unsignedInteger('ejemplares_disponibles')->default(0);
             $table->enum('estado', ['disponible', 'agotado', 'inactivo'])->default('disponible');
             $table->string('imagen_url')->nullable();
             $table->timestamps();

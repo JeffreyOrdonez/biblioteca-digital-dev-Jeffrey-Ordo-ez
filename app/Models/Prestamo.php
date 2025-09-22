@@ -14,6 +14,7 @@ class Prestamo extends Model
         'fecha_prestamo',
         'fecha_devolucion',
         'fecha_devolucion_real',
+        'fecha_devolucion_esperada',
         'estado'
     ];
 

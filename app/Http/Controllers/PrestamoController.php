@@ -12,7 +12,8 @@ class PrestamoController extends Controller
      */
     public function index()
     {
-        //
+        $prestamos = Prestamo::all();
+        return view('prestamos', compact('prestamos'));
     }
 
     /**
